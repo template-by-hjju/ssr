@@ -7,6 +7,8 @@ create-react-app을 이용하는게 아닌 react library를 다운받아 웹팩�
 # package.json 생성
 yarn init -y
 ```
+
+2. React, webpack, babel, babel-loader를 설치해준다.
 ```bash
 # React 설치 (for using React)
 yarn add react react-dom
@@ -19,7 +21,8 @@ yarn add -D @babel/core @babel/preset-env @babel/preset-react
 
 # babel-loader 설치 (for linking babel-webpack)
 yarn add -D babel-loader
-
+```
+```bash
 # 앱 빌드를 위한 package.json 수정
 "scripts": {
     "build": "webpack"
