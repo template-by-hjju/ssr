@@ -1,5 +1,5 @@
 ## ssr template  
-create-react-app을 이용하는게 아닌 react library를 웹팩을 통해 직접 빌드하는 과정을 거칠 것.
+create-react-app을 이용하는게 아닌 react library를 다운받아 웹팩을 통해 직접 빌드하는 과정을 거칠 것 이다.
 
 ```bash
 # package.json 생성
