@@ -33,6 +33,15 @@ yarn add -D babel-loader
 
 4. src 폴더를 만들고 내부에 index.js와 App.js를 작성한다. 이때, App.js에 리액트 코드를 작성해준다.
 ```javascript
+// index.js
+import React from "react";
+import ReactDom from "react-dom/client";
+import App from "./App.js";
+
+ReactDom.hydrateRoot(document.getElementById("root"), <App />);
+```
+```javascript
+// App.js
 import React, { useState } from "react";
 
 function App() {
