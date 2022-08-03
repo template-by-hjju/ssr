@@ -28,7 +28,32 @@ yarn add -D babel-loader
 # 앱 빌드를 위한 package.json 수정
 "scripts": {
     "build": "webpack"
-  },
+},
+```
+
+4. src 폴더를 만들고 내부에 index.js와 App.js를 작성한다. 이때, App.js에 리액트 코드를 작성해준다.
+```javascript
+import React, { useState } from "react";
+
+function App() {
+  const [count, setCount] = useState(0);
+
+  const increaseClick = () => setCount(count => count + 1);
+  const decreaseClick = () => setCount(count => count - 1);
+
+  return (
+    <>
+      <div>Count : {count}</div>
+
+      <div>
+        <button onClick={increaseClick}>Increase</button>
+        <button onClick={decreaseClick}>Decrease</button>
+      </div>
+    </>
+  );
+}
+
+export default App;
 ```
 ```bash
 # 리액트 코드 작성
