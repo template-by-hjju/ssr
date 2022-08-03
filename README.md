@@ -1,5 +1,5 @@
 ## ssr template  
-create-react-app을 이용하는게 아닌 react library를 다운받아 웹팩을 통해 직접 빌드하는 과정을 거칠 것 이다.  
+###### create-react-app을 이용하는게 아닌 react library를 다운받아 웹팩을 통해 직접 빌드하는 과정을 거칠 것 이다.  
 
 1. 프로젝트를 시작할 폴더를 만들고 폴더 내부에서 package.json을 생성해준다.
 
