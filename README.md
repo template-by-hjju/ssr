@@ -22,12 +22,15 @@ yarn add -D @babel/core @babel/preset-env @babel/preset-react
 # babel-loader 설치 (for linking babel-webpack)
 yarn add -D babel-loader
 ```
-```bash
+
+3. 앱을 빌드하기 위해 package.json에 아래 scripts를 추가해준다.
+```json
 # 앱 빌드를 위한 package.json 수정
 "scripts": {
     "build": "webpack"
   },
-
+```
+```bash
 # 리액트 코드 작성
 # src 폴더 내부에 index.js와 App.js를 작성한다.
 
