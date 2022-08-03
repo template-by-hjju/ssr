@@ -1,15 +1,16 @@
-## ssr template  
-###### create-react-app을 이용하는게 아닌 react library를 다운받아 웹팩을 통해 직접 빌드하는 과정을 거칠 것 이다.  
+SSR template
+============
+create-react-app을 사용하지 않고 react library를 다운받아 웹팩을 통해 직접 빌드하는 과정을 거칠 것 이다.  
   
   
-######1.1 프로젝트를 시작할 폴더를 만들고 폴더 내부에서 package.json을 생성해준다.
+#### 1. 프로젝트를 시작할 폴더를 만들고 폴더 내부에서 package.json을 생성해준다.
 
 ```bash
 # package.json 생성
 yarn init -y
 ```
 
-2. React, webpack, babel, babel-loader를 설치해준다.
+#### 2. React, webpack, babel, babel-loader를 설치해준다.
 ```bash
 # React 설치 (for using React)
 yarn add react react-dom
@@ -24,7 +25,7 @@ yarn add -D @babel/core @babel/preset-env @babel/preset-react
 yarn add -D babel-loader
 ```
 
-3. 앱을 빌드하기 위해 package.json에 아래 scripts를 추가해준다.
+#### 3. 앱을 빌드하기 위해 package.json에 아래 scripts를 추가해준다.
 ```bash
 # 앱 빌드를 위한 package.json 수정
 "scripts": {
@@ -32,7 +33,7 @@ yarn add -D babel-loader
 },
 ```
 
-4. src 폴더를 만들고 내부에 index.js와 App.js를 작성한다. 이때, App.js에 리액트 코드를 작성해준다.
+#### 4. src 폴더를 만들고 내부에 index.js와 App.js를 작성한다. 이때, App.js에 리액트 코드를 작성해준다.
 ```javascript
 // index.js
 import React from "react";
@@ -66,7 +67,7 @@ function App() {
 export default App;
 ```
 
-5. jsx의 build를 위해 webpack.config.js를 작성한다.
+#### 5. jsx의 build를 위해 webpack.config.js를 작성한다.
 ```javascript
 // webpack.config.js
 const path = require("path");
@@ -98,20 +99,21 @@ module.exports = {
 
 ```
 
-6. jsx 파일을 빌드해준다.
+#### 6. jsx 파일을 빌드해준다.
 ```bash
-# 빌드
+# build jsx
 yarn run build
 ```
 
-7. 생성된 bundle.js를 웹브라우저에 서빙하기 위해 웹서버를 다운로드 한다.
+#### 7. 생성된 bundle.js를 웹브라우저에 서빙하기 위해 웹서버를 다운로드 한다.
 ```bash
 # 웹서버 다운로드
 yarn add express webpack-node-externals
 ```
 
-8. root 경로에 서버를 위한 index.js를 만들어준다.
+#### 8. root 경로에 서버를 위한 index.js를 만들어준다.
 ```javascript
+// index.js
 const express = require("express");
 const ReactDomServer = require("react-dom/server");
 const React = require("react");
