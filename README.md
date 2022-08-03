@@ -124,9 +124,11 @@ const app = express();
 app.use(express.static("public"));
 
 app.get("*", (req, res) => {
+  /* 
   // html은 성공적으로 뜨나 js동작을 하지않는다.
   const html = ReactDomServer.renderToString(<App />);
-  // res.send(html);
+  res.send(html);
+  */
 
   // js동작을 위해 추가한 코드
   const template = `
