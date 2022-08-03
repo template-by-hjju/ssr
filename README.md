@@ -151,6 +151,7 @@ app.listen(3000, () => {
 
 #### 9. server 파일들을 build 하기위해 webpack.server.js를 만들어준다.
 ```javascript
+// webpack.server.js
 const nodeExternals = require("webpack-node-externals");
 const path = require("path");
 
