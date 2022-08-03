@@ -8,7 +8,7 @@ yarn init -y
 # React 설치 (for using React)
 yarn add react react-dom
 
-# 웹팩 설치 (for builing React library)
+# webpack 설치 (for builing React library)
 yarn add -D webpack webpack-cli
 
 # babel 설치 (for compiling newest Js to plain Js)
