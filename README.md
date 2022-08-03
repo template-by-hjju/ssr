@@ -86,7 +86,7 @@ module.exports = {
         test: /.jsx?$/, // 대상파일에 대해서
         loader: "babel-loader", // 해당 로더를 사용한다.
         exclude: /node_moduels/, // 해당 파일은 제외한다.
-        // 옵션에서는 넣을 옵션을 정해준다.
+        // 넣을 옵션을 정해준다.
         options: {
           presets: ["@babel/preset-env", "@babel/preset-react"],
         },
@@ -96,13 +96,53 @@ module.exports = {
 };
 
 ```
+
+6. jsx 파일을 빌드해준다.
 ```bash
 # 빌드
 yarn run build
+```
 
-# 생성된 번들을 웹브라우저에 서빙해야함
-# 서빙을 위해 웹서버 다운로드
+7. 생성된 bundle.js를 웹브라우저에 서빙하기 위해 웹서버를 다운로드 한다.
+```bash
+# 웹서버 다운로드
 yarn add express webpack-node-externals
+```
 
-# root 경로에 서버를 위한index.js를 만들어준다.
+8. root 경로에 서버를 위한 index.js를 만들어준다.
+```javascript
+const express = require("express");
+const ReactDomServer = require("react-dom/server");
+const React = require("react");
+const App = require("./src/App").default;
+
+const app = express();
+
+app.use(express.static("public"));
+
+app.get("*", (req, res) => {
+  // html은 성공적으로 뜨나 js동작을 하지않는다.
+  const html = ReactDomServer.renderToString(<App />);
+  // res.send(html);
+
+  // js동작을 위해 추가한 코드
+  const template = `
+  <html>
+  <head>
+    <title>SSR React APP</title>
+  </head>
+
+  <body>
+    <div id="root">${html}</div>
+    <script src="bundle.js"></script>
+  </body>
+  </html>
+  `;
+  res.send(template);
+});
+
+app.listen(3000, () => {
+  console.log("3000번 포트에서 서버 구동...");
+});
+
 ```
