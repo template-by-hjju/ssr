@@ -2,7 +2,7 @@
 ssr template
 
 create-react-app을 이용하는게 아닌 react library를 웹팩을 통해 직접 빌드하는 과정을 거칠 것.
-
+```bash
 # package.json 생성
 yarn init -y
 
@@ -36,3 +36,4 @@ yarn run build
 yarn add express webpack-node-externals
 
 # root 경로에 서버를 위한index.js를 만들어준다.
+```
