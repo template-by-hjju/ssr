@@ -147,5 +147,43 @@ app.get("*", (req, res) => {
 app.listen(3000, () => {
   console.log("3000번 포트에서 서버 구동...");
 });
-
 ```
+
+#### 9. server 파일들을 build 하기위해 webpack.server.js를 만들어준다.
+```javascript
+const nodeExternals = require("webpack-node-externals");
+const path = require("path");
+
+module.exports = {
+  mode: "development",
+  target: "node",
+  entry: "./index.js",
+  output: {
+    filename: "bundle.js",
+    path: path.resolve(__dirname, "build"),
+  },
+  module: {
+    rules: [
+      {
+        test: /\.js$/,
+        loader: "babel-loader",
+        exclude: /node_moduels/,
+        options: {
+          presets: ["@babel/preset-env", "@babel/preset-react"],
+        },
+      },
+    ],
+  },
+  externals: [nodeExternals()],
+};
+```
+
+#### 10. package.json의 script를 수정해준다.
+```bash
+# 앱 빌드를 위한 package.json 수정
+  "scripts": {
+    "build": "webpack", # for bundling front code
+    "server": "node build/bundle.js", # start backend bundle
+    "build:server": "webpack --config webpack.server.js" # for bundling back code
+  },
+  ```
