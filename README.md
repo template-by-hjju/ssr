@@ -25,7 +25,7 @@ yarn add -D babel-loader
 
 3. 앱을 빌드하기 위해 package.json에 아래 scripts를 추가해준다.
 ```json
-# 앱 빌드를 위한 package.json 수정
+// 앱 빌드를 위한 package.json 수정
 "scripts": {
     "build": "webpack"
   },
