@@ -189,4 +189,6 @@ module.exports = {
     "server": "node build/bundle.js", # start backend bundle
     "build:server": "webpack --config webpack.server.js" # for bundling back code
   },
-  ```
+```
+
+#### 11. yarn run build, yarn run build:server, yarn run server를 순서대로 실행시 동작한다.
